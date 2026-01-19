@@ -142,28 +142,36 @@ export default function Hero() {
                 initial={{ opacity: 0, x: 50, filter: "blur(10px)" }}
                 animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
                 transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
-                className="w-full md:max-w-md flex flex-col space-y-8 p-6 border-l border-gray-200 dark:border-neutral-800"
+                className="w-full md:max-w-md flex flex-col space-y-8 p-6 border-l-2 border-gray-200 dark:border-neutral-800"
               >
                 <div>
-                  <h3 className="text-blue-500 font-bold uppercase tracking-widest text-sm mb-2">Học vấn</h3>
-                  <p className="text-lg text-gray-600 dark:text-gray-400">
-                    Tốt nghiệp loại Giỏi ngành Công nghệ thông tin <br />
-                    <span className="text-black dark:text-white font-medium">Trường Đại học Công nghệ (VNU-UET)</span>
-                  </p>
+                  <h3 className="text-blue-500 font-bold uppercase tracking-widest text-sm mb-3">Học vấn</h3>
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <span className="text-black dark:text-white font-bold text-lg block">Đại học Cần Thơ</span>
+                      <span className="text-gray-500 dark:text-gray-400 text-sm block">Kỹ sư Công nghệ thông tin</span>
+                      <span className="text-gray-500 dark:text-gray-400 text-sm">GPA: 3.5 / 4.0</span>
+                    </div>
+                  </div>
                 </div>
 
                 <div>
-                  <h3 className="text-blue-500 font-bold uppercase tracking-widest text-sm mb-2">Mục tiêu</h3>
-                  <p className="text-lg text-gray-600 dark:text-gray-400 italic">
-                    Xây dựng những sản phẩm công nghệ có giá trị thực tế cao và trải nghiệm người dùng tối ưu.
+                  <h3 className="text-blue-500 font-bold uppercase tracking-widest text-sm mb-3">Định hướng</h3>
+                  <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+                    Tận dụng tư duy <strong className="text-black dark:text-white font-semibold">Fullstack</strong> để
+                    biến các yêu cầu phức tạp thành giải pháp phần mềm
+                    <span className="italic"> đơn giản & hiệu quả</span>.
+                    <br className="mb-2 block" />
+                    Tập trung vào việc viết <strong className="text-black dark:text-white">Clean Code</strong>, tối ưu
+                    hóa hiệu năng (Performance) và xây dựng hệ thống có khả năng mở rộng cao.
                   </p>
                 </div>
 
-                <div className="flex flex-wrap gap-3">
+                <div className="flex flex-wrap gap-2">
                   {["Next.js", "TypeScript", "Node.js", "Docker"].map((skill) => (
                     <span
                       key={skill}
-                      className="px-4 py-2 bg-gray-100 dark:bg-neutral-900 rounded-lg text-sm font-medium"
+                      className="px-3 py-1 bg-gray-50 dark:bg-neutral-900 border border-gray-200 dark:border-neutral-800 rounded text-xs font-semibold text-gray-600 dark:text-gray-300"
                     >
                       {skill}
                     </span>

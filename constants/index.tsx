@@ -17,7 +17,7 @@ export const PROJECTS = [
     },
     link: "https://your-demo.com",
     github: "https://github.com/your-repo",
-    image: "/project1.png",
+    image: "/",
   },
   {
     title: "AI Chat Platform",
@@ -28,7 +28,7 @@ export const PROJECTS = [
     },
     link: "https://ai-chat.com",
     github: "https://github.com/your-repo",
-    image: "/project2.png",
+    image: "/",
   },
 ];
 
