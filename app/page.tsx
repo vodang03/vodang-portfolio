@@ -1,8 +1,13 @@
-import Contact from "@/components/Contact";
-import Experience from "@/components/Experience";
 import Hero from "@/components/Hero";
-import Projects from "@/components/Projects";
-import Skills from "@/components/Skills";
+import dynamic from "next/dynamic";
+
+const Projects = dynamic(() => import("@/components/Projects"), {
+  ssr: true,
+  loading: () => <div className="h-96" />,
+});
+const Skills = dynamic(() => import("@/components/Skills"));
+const Experience = dynamic(() => import("@/components/Experience"));
+const Contact = dynamic(() => import("@/components/Contact"));
 
 export default function Home() {
   return (
