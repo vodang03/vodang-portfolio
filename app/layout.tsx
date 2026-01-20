@@ -23,14 +23,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <LazyMotion features={domAnimation}>
-        <body className={`${inter.variable} antialiased`}>
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+      <body className={`${inter.variable} antialiased`}>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <LazyMotion features={domAnimation}>
             <Navbar />
             {children}
-          </ThemeProvider>
-        </body>
-      </LazyMotion>
+          </LazyMotion>
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

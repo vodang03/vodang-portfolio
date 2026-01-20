@@ -14,7 +14,7 @@ import {
 } from "react-icons/si";
 
 const SKILLS = [
-  { name: "Next.js", icon: <SiNextdotjs />, color: "#000000", activeClass: "text-black dark:text-white" },
+  { name: "Next.js", icon: <SiNextdotjs />, color: "#000000", activeClass: "text-foreground" },
   { name: "React", icon: <SiReact />, color: "#61DAFB", activeClass: "text-[#61DAFB]" },
   { name: "TypeScript", icon: <SiTypescript />, color: "#3178C6", activeClass: "text-[#3178C6]" },
   { name: "Tailwind", icon: <SiTailwindcss />, color: "#06B6D4", activeClass: "text-[#06B6D4]" },
@@ -26,7 +26,6 @@ const SKILLS = [
 
 export default function Skills() {
   const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
-
   const [activeIndex, setActiveIndex] = useState(0);
 
   // Cấu hình kích thước cho Carousel (băng chuyền)
@@ -35,11 +34,11 @@ export default function Skills() {
   const TOTAL_WIDTH = ITEM_WIDTH + GAP;
 
   return (
-    <section id="skills" className="py-14 bg-gray-50/50 dark:bg-neutral-900/30 overflow-hidden">
+    <section id="skills" className="py-14 bg-background transition-colors duration-500 overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold md:text-4xl mb-4">Kỹ năng chuyên môn</h2>
-          <div className="h-1 w-20 bg-blue-500 mx-auto rounded-full" />
+          <h2 className="text-3xl font-bold md:text-4xl mb-4 text-foreground">Kỹ năng chuyên môn</h2>
+          <div className="h-1 w-20 bg-primary mx-auto rounded-full" />
         </div>
 
         <div className="flex flex-col md:flex-row items-center justify-between gap-10 md:gap-12 lg:gap-20 max-w-6xl mx-auto">
@@ -57,19 +56,22 @@ export default function Skills() {
                 }}
                 onMouseLeave={() => setHoveredSkill(null)}
                 className={`group relative flex items-center justify-center 
-                     w-24 h-24 md:w-28 md:h-28 rounded-full 
-                     bg-white dark:bg-neutral-800 
-                     border transition-all cursor-pointer shadow-sm
-                     ${
-                       hoveredSkill === skill.name
-                         ? "border-blue-500 shadow-md scale-105"
-                         : "border-gray-100 dark:border-neutral-700"
-                     }`}
+                      w-24 h-24 md:w-28 md:h-28 rounded-full 
+                      bg-card border transition-all cursor-pointer shadow-sm
+                      ${
+                        hoveredSkill === skill.name
+                          ? "shadow-md scale-105" // Bỏ border cứng ở đây, xử lý style inline hoặc class động bên dưới
+                          : "border-border"
+                      }`}
+                style={{
+                  borderColor: hoveredSkill === skill.name ? skill.color : "",
+                }}
               >
                 <span
                   className={`font-semibold text-xs md:text-sm text-center px-1 transition-colors ${
-                    hoveredSkill === skill.name ? "text-blue-500" : "text-gray-600 dark:text-gray-400"
+                    hoveredSkill === skill.name ? "" : "text-muted-foreground"
                   }`}
+                  style={{ color: hoveredSkill === skill.name ? skill.color : "" }}
                 >
                   {skill.name}
                 </span>
@@ -80,7 +82,7 @@ export default function Skills() {
           {/* --- CỘT PHẢI: CAROUSEL ICON (Màn hình hiển thị) --- */}
           <div className="flex-1 w-full flex justify-center items-center h-50 relative">
             {/* Lớp phủ Gradient tạo hiệu ứng "Rèm che" 2 bên */}
-            <div className="absolute inset-0 z-20 pointer-events-none bg-linear-to-r w-full" />
+            <div className="absolute inset-0 z-20 pointer-events-none bg-linear-to-r from-background via-transparent to-background w-full" />
 
             {/* Container chứa dải icon trượt */}
             <div className="relative w-full max-w-100 flex justify-center items-center overflow-hidden h-full">
@@ -113,7 +115,7 @@ export default function Skills() {
                       style={{ width: ITEM_WIDTH, marginRight: index === SKILLS.length - 1 ? 0 : GAP }}
                       className="shrink-0 flex items-center justify-center"
                     >
-                      <div className="p-4 rounded-2xl bg-white dark:bg-neutral-800 border border-gray-100 dark:border-neutral-700 shadow-xl">
+                      <div className="p-4 rounded-2xl bg-card border border-border shadow-2xl">
                         {isActive && (
                           <div
                             className="absolute inset-0 rounded-3xl opacity-40 blur-xl transition-colors duration-500"
@@ -123,7 +125,7 @@ export default function Skills() {
 
                         <div
                           className={`text-5xl md:text-6xl transition-colors duration-300 ${
-                            isActive ? skill.activeClass : "text-gray-400 opacity-50"
+                            isActive ? skill.activeClass : "text-muted-foreground opacity-20"
                           }`}
                         >
                           {skill.icon}
