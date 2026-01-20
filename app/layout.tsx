@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import Navbar from "@/components/Navbar";
 import { domAnimation, LazyMotion } from "framer-motion";
+import { LanguageProvider } from "@/context/LanguageContext";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -24,12 +25,14 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} antialiased`}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <LazyMotion features={domAnimation}>
-            <Navbar />
-            {children}
-          </LazyMotion>
-        </ThemeProvider>
+        <LanguageProvider>
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+            <LazyMotion features={domAnimation}>
+              <Navbar />
+              {children}
+            </LazyMotion>
+          </ThemeProvider>
+        </LanguageProvider>
       </body>
     </html>
   );

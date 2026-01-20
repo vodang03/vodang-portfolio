@@ -1,5 +1,6 @@
 "use client";
 
+import { useLanguage } from "@/context/LanguageContext";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import {
@@ -27,6 +28,7 @@ const SKILLS = [
 export default function Skills() {
   const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const { dict } = useLanguage();
 
   // Cấu hình kích thước cho Carousel (băng chuyền)
   const ITEM_WIDTH = 80; // Chiều rộng cơ bản của icon
@@ -37,7 +39,7 @@ export default function Skills() {
     <section id="skills" className="py-14 bg-background transition-colors duration-500 overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold md:text-4xl mb-4 text-foreground">Kỹ năng chuyên môn</h2>
+          <h2 className="text-3xl font-bold md:text-4xl mb-4 text-foreground">{dict.skills_section.title}</h2>
           <div className="h-1 w-20 bg-primary mx-auto rounded-full" />
         </div>
 

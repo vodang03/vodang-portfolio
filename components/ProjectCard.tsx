@@ -10,7 +10,11 @@ export default function ProjectCard({ project }: { project: Project }) {
   return (
     <motion.div
       whileHover={{ y: -8 }}
-      className="group flex flex-col h-full overflow-hidden rounded-2xl bg-card border border-border shadow-sm hover:shadow-xl hover:shadow-primary/10 transition-all duration-300"
+      className="group flex flex-col h-full overflow-hidden rounded-2xl 
+                 bg-white dark:bg-card 
+                 border border-zinc-200 dark:border-border 
+                 shadow-md hover:shadow-xl hover:shadow-primary/10 
+                 transition-all duration-300"
     >
       <div className="relative h-52 w-full overflow-hidden border-b border-border">
         <Image
@@ -46,10 +50,12 @@ export default function ProjectCard({ project }: { project: Project }) {
 
       <div className="p-6 flex flex-col grow">
         <div className="mb-4">
-          <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors ">
+          <h3 className="text-xl font-bold text-zinc-900 dark:text-foreground group-hover:text-primary transition-colors">
             {project.title}
           </h3>
-          <p className="mt-2 text-sm text-muted-foreground leading-relaxed line-clamp-3">{project.description}</p>
+          <p className="mt-2 text-sm text-zinc-600 dark:text-muted-foreground leading-relaxed line-clamp-3">
+            {project.description}
+          </p>
         </div>
 
         {/* Tech Stack Divider */}
@@ -63,7 +69,9 @@ export default function ProjectCard({ project }: { project: Project }) {
               {project.tech.frontend.map((item: string) => (
                 <span
                   key={item}
-                  className="px-2 py-1 text-[10px] font-medium rounded bg-blue-500/10 text-blue-700 dark:text-blue-300 border border-blue-200/50 dark:border-blue-800/50"
+                  className="px-2 py-1 text-[10px] font-semibold rounded 
+                             bg-blue-50 text-blue-700 border border-blue-200
+                             dark:bg-blue-500/10 dark:text-blue-300 dark:border-blue-500/20"
                 >
                   {item}
                 </span>
@@ -81,7 +89,9 @@ export default function ProjectCard({ project }: { project: Project }) {
               {project.tech.backend.map((item: string) => (
                 <span
                   key={item}
-                  className="px-2 py-1 text-[10px] font-medium rounded bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-200/50 dark:border-emerald-800/50"
+                  className="px-2 py-1 text-[10px] font-semibold rounded 
+                             bg-emerald-50 text-emerald-700 border border-emerald-200
+                             dark:bg-emerald-500/10 dark:text-emerald-300 dark:border-emerald-500/20"
                 >
                   {item}
                 </span>

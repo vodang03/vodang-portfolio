@@ -1,10 +1,11 @@
 "use client";
 
-import { TIMELINE } from "@/constants";
+import { useLanguage } from "@/context/LanguageContext";
 import { motion } from "framer-motion";
 import { useRef } from "react";
 
 export default function Experience() {
+  const { dict } = useLanguage();
   const containerRef = useRef<HTMLDivElement>(null);
 
   const LINE_DURATION = 2;
@@ -16,7 +17,8 @@ export default function Experience() {
       className="py-24 bg-background transition-colors duration-500 overflow-hidden"
     >
       <h2 className="text-4xl font-bold mb-10 text-center text-foreground tracking-tight">
-        Học vấn & <span className="text-primary">Kinh nghiệm</span>
+        {dict.experience_section.title_normal}{" "}
+        <span className="text-primary">{dict.experience_section.title_highlight}</span>
       </h2>
 
       <div className="container mx-auto px-6 hidden md:block">
@@ -34,9 +36,9 @@ export default function Experience() {
           />
 
           <div className="relative flex justify-between items-center min-h-125 gap-1">
-            {TIMELINE.map((item, index) => {
+            {dict.timeline.map((item, index) => {
               const isEven = index % 2 === 0;
-              const positionPercent = ((index + 1) / (TIMELINE.length + 1)) * 100;
+              const positionPercent = ((index + 1) / (dict.timeline.length + 1)) * 100;
               const appearanceDelay = (positionPercent / 100) * LINE_DURATION;
 
               return (
@@ -99,7 +101,7 @@ export default function Experience() {
           className="absolute top-0 left-1.75 w-0.5 h-full bg-primary z-10 shadow-[0_0_15px_var(--color-primary)]"
         />
 
-        {TIMELINE.map((item, index) => (
+        {dict.timeline.map((item, index) => (
           <div key={index} className="relative pl-8">
             <motion.div
               initial={{ scale: 0 }}
