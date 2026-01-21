@@ -1,5 +1,12 @@
 import { SiGithub, SiLinkedin, SiFacebook, SiGmail } from "react-icons/si";
 
+const generateGallery = (basePath: string, prefix: string, count: number, ext: string = "jpg") => {
+  return Array.from({ length: count }, (_, i) => `${basePath}/${prefix}${i + 1}.${ext}`);
+};
+
+const InBillGallery = generateGallery("/images/InBill", "inbill", 6, "webp");
+const CTVGallery = generateGallery("/images/CTV", "ctv", 9, "webp");
+
 export const SOCIALS = [
   { name: "Github", icon: <SiGithub />, link: "https://github.com/voldang", color: "hover:text-white" },
   { name: "LinkedIn", icon: <SiLinkedin />, link: "https://linkedin.com/in/voldang", color: "hover:text-[#0A66C2]" },
@@ -18,26 +25,28 @@ export const DICTIONARY = {
     ],
     projects_section: {
       title_normal: "Dự án",
-      title_highlight: "tiêu biểu", // Chữ màu xanh
+      title_highlight: "tiêu biểu",
       description:
         "Dưới đây là một số dự án Full-stack mình đã thực hiện, thể hiện tư duy thiết kế hệ thống và kỹ năng lập trình thực tế.",
     },
     projects: [
       {
-        title: "Web In Bill TAT",
-        description: "Hệ thống quản lý hoá đơn tiền điện",
-        tech: { frontend: ["Next.js", "Tailwind CSS"], backend: ["Node.js", "Express", "MongoDB"] },
-        link: "https://your-demo.com",
-        github: "https://github.com/your-repo",
-        image: "/",
+        title: "Dự án Cá nhân (Full Open)",
+        description: "Dự án này có đầy đủ source code và demo.",
+        tech: { frontend: ["Next.js"], backend: ["Node.js"] },
+        link: "https://demo.com",
+        github: "https://github.com",
+        image: "/images/personal-thumb.jpg",
+        gallery: InBillGallery,
       },
       {
-        title: "AI Chat Platform",
-        description: "Ứng dụng chat tích hợp OpenAI API với khả năng lưu lịch sử trò chuyện.",
-        tech: { frontend: ["Next.js", "Tailwind CSS"], backend: ["Node.js", "Express", "MongoDB"] },
-        link: "https://ai-chat.com",
-        github: "https://github.com/your-repo",
-        image: "/",
+        title: "Dự án Công ty (Private)",
+        description: "Dự án nội bộ, bảo mật. Chỉ có thể xem hình ảnh giao diện.",
+        tech: { frontend: ["React"], backend: ["Java Spring"] },
+        link: null,
+        github: null,
+        image: "/images/company-thumb.jpg",
+        gallery: CTVGallery,
       },
     ],
     skills_section: {
