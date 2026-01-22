@@ -4,7 +4,7 @@ const generateGallery = (basePath: string, prefix: string, count: number, ext: s
   return Array.from({ length: count }, (_, i) => `${basePath}/${prefix}${i + 1}.${ext}`);
 };
 
-const InBillGallery = generateGallery("/images/InBill", "inbill", 5, "webp");
+const InBillGallery = generateGallery("/images/Inbill", "inbill", 5, "webp");
 const CTVGallery = generateGallery("/images/CTV", "ctv", 9, "webp");
 
 export const SOCIALS = [
