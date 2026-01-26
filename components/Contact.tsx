@@ -11,7 +11,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-black text-white pt-16 font-sans border-t border-white/10">
+    <footer id="footer" className="bg-black text-white pt-16 font-sans border-t border-white/10">
       <div className="container mx-auto px-6 pb-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24">
           <div className="flex flex-col space-y-6">
@@ -46,10 +46,10 @@ export default function Footer() {
           <div className="flex flex-col space-y-6">
             <h3 className="text-sm font-bold uppercase tracking-widest text-white">{dict.footer.sitemap_title}</h3>
             <ul className="grid grid-cols-2 gap-y-3 gap-x-4 text-zinc-400 text-sm">
-              {dict.nav.map((title) => (
-                <li key={title.label}>
-                  <a href="#home" className="hover:text-white transition-colors">
-                    {title.label}
+              {dict.nav.map((item) => (
+                <li key={item.href}>
+                  <a href={item.href} className="hover:text-white transition-colors">
+                    {item.label}
                   </a>
                 </li>
               ))}

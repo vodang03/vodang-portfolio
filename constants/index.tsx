@@ -6,12 +6,16 @@ const generateGallery = (basePath: string, prefix: string, count: number, ext: s
 
 const InBillGallery = generateGallery("/images/Inbill", "inbill", 5, "webp");
 const CTVGallery = generateGallery("/images/CTV", "ctv", 9, "webp");
+const ThanGallery = generateGallery("/images/Than", "than", 3, "webp");
+const BlissGallery = generateGallery("/images/Bliss", "bliss", 4, "webp");
+const AnimeGallery = generateGallery("/images/Anime", "anime", 5, "webp");
+const PortfolioGallery = generateGallery("/images/Portfolio", "portfolio", 6, "webp");
 
 export const SOCIALS = [
-  { name: "Github", icon: <SiGithub />, link: "https://github.com/voldang", color: "hover:text-white" },
-  { name: "LinkedIn", icon: <SiLinkedin />, link: "https://linkedin.com/in/voldang", color: "hover:text-[#0A66C2]" },
-  { name: "Facebook", icon: <SiFacebook />, link: "https://facebook.com/voldang", color: "hover:text-[#1877F2]" },
-  { name: "Gmail", icon: <SiGmail />, link: "mailto:dangvo@example.com", color: "hover:text-[#EA4335]" },
+  { name: "Github", icon: <SiGithub />, link: "https://github.com/vodang03", color: "hover:text-white" },
+  // { name: "LinkedIn", icon: <SiLinkedin />, link: "https://linkedin.com/in/voldang", color: "hover:text-[#0A66C2]" },
+  // { name: "Facebook", icon: <SiFacebook />, link: "https://facebook.com/voldang", color: "hover:text-[#1877F2]" },
+  { name: "Gmail", icon: <SiGmail />, link: "mailto:vodang.work@gmail.com", color: "hover:text-[#EA4335]" },
 ];
 
 export const DICTIONARY = {
@@ -27,28 +31,102 @@ export const DICTIONARY = {
       title_normal: "Dự án",
       title_highlight: "tiêu biểu",
       description:
-        "Dưới đây là một số dự án Full-stack mình đã thực hiện, thể hiện tư duy thiết kế hệ thống và kỹ năng lập trình thực tế.",
+        "Dưới đây là các dự án thực tế tôi đã tham gia phát triển tại công ty và các dự án cá nhân nhằm trau dồi kỹ năng.",
+      tabs: {
+        all: "Tất cả",
+        company: "Công ty",
+        personal: "Cá nhân",
+      },
     },
+
     projects: [
       {
-        title: "Dự án Cá nhân (Full Open)",
-        description: "Dự án này có đầy đủ source code và demo.",
-        tech: { frontend: ["Next.js"], backend: ["Node.js"] },
-        link: "https://demo.com",
-        github: "https://github.com",
-        image: "/images/personal-thumb.jpg",
+        title: "Web / App In Bill",
+        description:
+          "Hệ thống quản lý và in hóa đơn đa nền tảng (Web & Mobile). Tối ưu hóa quy trình thanh toán và quản lý dòng tiền.",
+        tech: {
+          frontend: ["React Native", "Next.js", "Tailwind CSS"],
+          backend: ["Node.js", "Express", "MongoDB"],
+        },
+        category: "company",
+        link: null,
+        github: null,
+        image: "/images/Inbill/inbill1.webp",
         gallery: InBillGallery,
       },
       {
-        title: "Dự án Công ty (Private)",
-        description: "Dự án nội bộ, bảo mật. Chỉ có thể xem hình ảnh giao diện.",
-        tech: { frontend: ["React"], backend: ["Java Spring"] },
+        title: "Hệ thống quản lý CTV (Web CTV)",
+        description:
+          "Nền tảng quản lý mạng lưới cộng tác viên, tính toán hoa hồng tự động và theo dõi hiệu suất làm việc.",
+        tech: {
+          frontend: ["Next.js", "Tailwind CSS"],
+          backend: ["Node.js", "Express", "MongoDB"],
+        },
+        category: "company",
         link: null,
         github: null,
-        image: "/images/company-thumb.jpg",
+        image: "/images/CTV/ctv1.webp",
         gallery: CTVGallery,
       },
+      {
+        title: "Website Giới Thiệu Kho Than (Web Than)",
+        description: "Phần mềm quản lý nhập xuất kho, theo dõi trữ lượng và báo cáo thống kê cho ngành than.",
+        tech: {
+          frontend: ["Next.js", "Tailwind CSS"],
+          backend: [],
+        },
+        category: "company",
+        link: "https://www.thankokhoi.com/",
+        github: null,
+        image: "/images/Than/than1.webp",
+        gallery: ThanGallery,
+      },
+
+      {
+        title: "Web Bliss",
+        description:
+          "Website thương mại điện tử/Landing page giới thiệu sản phẩm với giao diện hiện đại, trải nghiệm mượt mà.",
+        tech: {
+          frontend: ["Next.js", "Tailwind CSS", "Framer Motion"],
+          backend: ["Node.js", "Express", "MongoDB"],
+        },
+        category: "company",
+        link: "https://www.dvtienich.vn/",
+        github: null,
+        image: "/images/Bliss/bliss1.webp",
+        gallery: BlissGallery,
+      },
+
+      {
+        title: "Anime Info Wiki",
+        description:
+          "Trang web tra cứu thông tin Anime, sử dụng API từ bên thứ ba. Hỗ trợ tìm kiếm, lọc và xem chi tiết nhân vật.",
+        tech: {
+          frontend: ["Next.js", "TypeScript"],
+          backend: ["Jikan API", "MySQL"],
+        },
+        category: "personal",
+        link: null,
+        github: "https://github.com/vodang03/AnimeInfo-webiste.git",
+        image: "/images/Anime/anime1.webp",
+        gallery: AnimeGallery,
+      },
+      {
+        title: "Portfolio Cá nhân",
+        description:
+          "Trang web giới thiệu bản thân (chính là trang web này), tích hợp Dark mode, Đa ngôn ngữ và Animation mượt mà.",
+        tech: {
+          frontend: ["Next.js", "Tailwind v4", "Framer Motion"],
+          backend: [],
+        },
+        category: "personal",
+        link: "https://vodang-portfolio.vercel.app",
+        github: "https://github.com/vodang03/vodang-portfolio.git",
+        image: "/images/Portfolio/portfolio1.webp",
+        gallery: PortfolioGallery,
+      },
     ],
+
     skills_section: {
       title: "Kỹ năng chuyên môn",
     },
@@ -64,10 +142,10 @@ export const DICTIONARY = {
         description: "Tốt nghiệp loại Giỏi. Tập trung vào mảng Full-stack và Web Performance.",
       },
       {
-        year: "2024",
-        title: "Công ty Công nghệ A",
-        subtitle: "Thực tập sinh Frontend",
-        description: "Xây dựng Dashboard quản trị và tối ưu hóa 20% tốc độ tải trang.",
+        year: "09/2025 - 02/2026",
+        title: "Công Ty TNHH Sản Xuất Thương Mại Dịch Vụ TAT",
+        subtitle: "Lập trình viên Web/App",
+        description: "Xây dựng các trang Web và công cụ để hỗ trợ công việc cho công ty.",
       },
     ],
     hero: {
@@ -111,30 +189,104 @@ export const DICTIONARY = {
     ],
     projects_section: {
       title_normal: "Featured",
-      title_highlight: "Projects", // Chữ màu xanh
+      title_highlight: "Projects",
       description:
-        "Here are some Full-stack projects I have built, demonstrating system design thinking and practical coding skills.",
+        "Here are real-world projects I contributed to in a professional environment, along with personal projects built to refine my skills.",
+      tabs: {
+        all: "All",
+        company: "Company",
+        personal: "Personal",
+      },
     },
+
     projects: [
       {
-        title: "Personal Project (Open Source)",
-        description: "A comprehensive system including full source code and a live demo.",
-        tech: { frontend: ["Next.js", "Tailwind CSS"], backend: ["Node.js", "Express", "MongoDB"] },
-        link: "https://your-demo.com",
-        github: "https://github.com/your-repo",
-        image: "/images/personal-thumb.jpg",
+        title: "In Bill Web / App",
+        description:
+          "Cross-platform invoice management and printing system (Web & Mobile). Optimized payment processes and cash flow management.",
+        tech: {
+          frontend: ["React Native", "Next.js", "Tailwind CSS"],
+          backend: ["Node.js", "Express", "MongoDB"],
+        },
+        category: "company",
+        link: null,
+        github: null,
+        image: "/images/Inbill/inbill1.webp",
         gallery: InBillGallery,
       },
       {
-        title: "Company Project (Private)",
-        description: "Internal enterprise project. Due to security policies, only UI screenshots are available.",
-        tech: { frontend: ["React"], backend: ["Java Spring"] },
+        title: "Collaborator Management System (Web CTV)",
+        description:
+          "Collaborator network management platform featuring automated commission calculations and performance tracking.",
+        tech: {
+          frontend: ["Next.js", "Tailwind CSS"],
+          backend: ["Node.js", "Express", "MongoDB"],
+        },
+        category: "company",
         link: null,
         github: null,
-        image: "/images/company-thumb.jpg",
+        image: "/images/CTV/ctv1.webp",
         gallery: CTVGallery,
       },
+      {
+        title: "Coal Inventory Management (Web Than)",
+        description:
+          "Inventory management software for tracking import/export, stock levels, and generating statistical reports for the coal industry.",
+        tech: {
+          frontend: ["Next.js", "Tailwind CSS"],
+          backend: [],
+        },
+        category: "company",
+        link: "https://www.thankokhoi.com/",
+        github: null,
+        image: "/images/Than/than1.webp",
+        gallery: ThanGallery,
+      },
+
+      {
+        title: "Web Bliss",
+        description: "E-commerce website/Product landing page featuring a modern UI and smooth user experience.",
+        tech: {
+          frontend: ["Next.js", "Tailwind CSS", "Framer Motion"],
+          backend: ["Node.js", "Express", "MongoDB"],
+        },
+        category: "company",
+        link: "https://www.dvtienich.vn/",
+        github: null,
+        image: "/images/Bliss/bliss1.webp",
+        gallery: BlissGallery,
+      },
+
+      {
+        title: "Anime Info Wiki",
+        description:
+          "Anime information lookup website using third-party APIs. Supports searching, filtering, and viewing character details.",
+        tech: {
+          frontend: ["Next.js", "TypeScript"],
+          backend: ["Jikan API", "MySQL"],
+        },
+        category: "personal",
+        link: null,
+        github: "https://github.com/vodang03/AnimeInfo-webiste.git",
+        image: "/images/Anime/anime1.webp",
+        gallery: AnimeGallery,
+      },
+      {
+        title: "Personal Portfolio",
+        description:
+          "Personal showcase website (this site), featuring Dark Mode, Multi-language support, and smooth animations.",
+        tech: {
+          frontend: ["Next.js", "Tailwind v4", "Framer Motion"],
+          backend: [],
+        },
+        category: "personal",
+        link: "https://vodang-portfolio.vercel.app",
+        github: "https://github.com/vodang03/vodang-portfolio.git",
+        image: "/images/Portfolio/portfolio1.webp",
+        gallery: PortfolioGallery,
+      },
     ],
+
     skills_section: {
       title: "Technical Skills",
     },
@@ -146,14 +298,14 @@ export const DICTIONARY = {
       {
         year: "2021 - 2025",
         title: "Can Tho University",
-        subtitle: "Information Technology Student",
-        description: "Graduated with Honors. Focused on Full-stack and Web Performance.",
+        subtitle: "Information Technology",
+        description: "Graduated with Honors. Focused on Full-stack development and Web Performance.",
       },
       {
-        year: "2024",
-        title: "Tech Company A",
-        subtitle: "Frontend Intern",
-        description: "Built Admin Dashboard and optimized page load speed by 20%.",
+        year: "09/2025 - 02/2026",
+        title: "TAT Manufacturing Trading Service Co., Ltd.",
+        subtitle: "Web/App Developer",
+        description: "Developed websites and internal tools to support company operations and optimize workflows.",
       },
     ],
     hero: {

@@ -5,8 +5,10 @@ export interface Project {
     frontend: string[];
     backend: string[];
   };
+  image: string;
+  category: string;
+
   link?: string | null;
   github?: string | null;
-  image?: string;
-  gallery?: string[];
+  gallery?: string[] | null;
 }
