@@ -77,12 +77,6 @@ export default function ProjectCard({ project }: { project: Project }) {
           <div className="mb-4">
             <h3 className="text-xl font-bold text-zinc-900 dark:text-foreground group-hover:text-primary transition-colors flex items-center gap-2">
               {project.title}
-              {/* Badge nếu là dự án nội bộ/không có link */}
-              {!project.link && !project.github && (
-                <span className="text-[10px] px-2 py-0.5 rounded-full bg-zinc-100 text-zinc-500 border border-zinc-200 font-medium">
-                  Private
-                </span>
-              )}
             </h3>
             <p className="mt-2 text-sm text-zinc-600 dark:text-muted-foreground leading-relaxed line-clamp-3">
               {project.description}
